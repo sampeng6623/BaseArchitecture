@@ -1,0 +1,6 @@
+com\company\sts\entity\Usersts.class
+com\company\dao\GenericDAO.class
+com\company\sts\entity\Usersts_.class
+com\company\dao\LoginDAO.class
+com\company\sec\EMF.class
+com\company\sts\controller\LoginManagedBean.class
