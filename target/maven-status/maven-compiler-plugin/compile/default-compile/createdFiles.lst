@@ -1,6 +1,11 @@
+com\company\sts\controller\partner\MainPartnerManagedBean.class
+com\company\sec\SessionUtils.class
 com\company\sts\entity\Usersts.class
 com\company\dao\GenericDAO.class
+com\company\sec\AuthorizationFilter.class
 com\company\sts\entity\Usersts_.class
 com\company\dao\LoginDAO.class
 com\company\sec\EMF.class
+com\company\sec\GenericUtils.class
+com\company\sts\controller\partner\PartnerTemplateManagedBean.class
 com\company\sts\controller\LoginManagedBean.class

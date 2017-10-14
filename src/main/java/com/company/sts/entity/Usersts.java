@@ -27,8 +27,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Usersts.findAll", query = "SELECT u FROM Usersts u")
     , @NamedQuery(name = "Usersts.findBySeq", query = "SELECT u FROM Usersts u WHERE u.seq = :seq")
-    , @NamedQuery(name = "Usersts.findByUsUsername", query = "SELECT u FROM Usersts u WHERE u.usUsername = :usUsername")})
+    , @NamedQuery(name = "Usersts.findByUsUsername", query = "SELECT u FROM Usersts u WHERE u.usUsername = :usUsername")
+    , @NamedQuery(name = "Usersts.validateLogin", query = "SELECT u FROM Usersts u WHERE u.usUsername = :usUsername AND u.usPassword = :usPassword")
+})
 public class Usersts implements Serializable {
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "us_password")
+    private String usPassword;
 
     private static final long serialVersionUID = 1L;
     @Column(name = "seq")
@@ -86,6 +94,14 @@ public class Usersts implements Serializable {
     @Override
     public String toString() {
         return "com.company.salestrackingsystemweb.entity.Usersts[ usUsername=" + usUsername + " ]";
+    }
+
+    public String getUsPassword() {
+        return usPassword;
+    }
+
+    public void setUsPassword(String usPassword) {
+        this.usPassword = usPassword;
     }
     
 }

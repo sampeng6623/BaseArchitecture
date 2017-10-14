@@ -4,11 +4,12 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-10-13T18:33:30")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-10-14T08:39:13")
 @StaticMetamodel(Usersts.class)
 public class Usersts_ { 
 
     public static volatile SingularAttribute<Usersts, String> usUsername;
+    public static volatile SingularAttribute<Usersts, String> usPassword;
     public static volatile SingularAttribute<Usersts, Integer> seq;
 
 }

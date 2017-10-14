@@ -7,17 +7,38 @@ package com.company.dao;
 
 import com.company.sec.EMF;
 import com.company.sts.entity.Usersts;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Random;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author sampeng
  */
-public class LoginDAO extends GenericDAO{
+public class LoginDAO extends GenericDAO implements Serializable{
     
     
-    EntityManager em = EMF.createEntityManager();
+    private static EntityManager em;
+    
+    
+    
+    public static boolean validate(String user, String password) throws Exception{
+        
+        em = EMF.createEntityManager();
+        TypedQuery<Usersts> query =
+                     em.createNamedQuery("Usersts.validateLogin", Usersts.class)
+                .setParameter("usUsername", user)
+                .setParameter("usPassword", password);
+            List<Usersts> results = query.getResultList();
+		
+            if(results.isEmpty())
+		return false;
+            else
+                return true;
+	}
+    
     
     public void insertConcept(String value){
         
