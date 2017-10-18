@@ -3,23 +3,100 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/WEB-INF/template/partnerTemplate.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f = "http://java.sun.com/jsf/core"    
+                >
 
 
     <ui:define name="content"> 
         <h:form id="form">
-            
+
             <p:growl id="growl" showDetail="true" sticky="true" />
-            <h:panelGrid columns="2" >
-               prospect view
-            
+
+                <p:panelGrid style="width: 100%;" styleClass="buttongrid defaultMain" >
+
+                    <p:row>
+                        <p:column style="width:80%"><p:spacer/></p:column>
+                        <p:column>
+                            <p:commandButton alt="Add Prospect" value="Add" styleClass="buttonStyle" style="float: right"  action="#{prospectManagedBean.onAddButton()}"/>
+
+                        </p:column>
+
+                    </p:row>
+
+
+
+                </p:panelGrid>
+
+            <h:panelGrid styleClass="defaultMain" >
+                <p:dataTable widgetVar="prosptectTable" value="#{prospectManagedBean.tableList}" var="p" 
+
+                             selectionMode="single" selection="#{prospectManagedBean.selectedProspect}" rowKey="#{p.usprospectid}"
+                             emptyMessage="No Prospect Found" 
+                             lazy="false" styleClass=".ui-datatable .ui-datatable-data tr.ui-state-highlight"  
+                             scrollable="true" scrollHeight="300">
+                    <p:ajax event="rowSelect" update=":form:prospectDetail" oncomplete="PF('prospectDialog').show()" />
+
+
+
+                    <p:column headerText="Prospect ID" filterBy="#{p.usprospectid}" sortBy="#{p.usprospectid}" filterMatchMode="contains">
+                        <h:outputText value="#{p.usprospectid}"  />
+                    </p:column>
+
+                    <p:column headerText="Name" filterBy="#{p.usprospectname}" sortBy="#{p.usprospectname}" filterMatchMode="contains">
+                        <h:outputText value="#{p.usprospectname}" />
+                    </p:column>
+
+                    <p:column headerText="Tel. No" filterBy="#{p.usprospecttel1}" sortBy="#{p.usprospecttel1}" filterMatchMode="contains">
+                        <h:outputText value="#{p.usprospecttel1}" />
+                    </p:column>
+
+                    <p:column headerText="Progress" >
+                        <p:progressBar value="#{p.usprospectprogress}" labelTemplate="{value}%" displayOnly="true"/>
+                    </p:column>
+
+                    <p:column headerText="Status" filterBy="#{p.usprospectstatus}" sortBy="#{p.usprospectstatus}" filterMatchMode="contains">
+                        <h:outputText value="#{p.usprospectstatus}" />   
+                    </p:column>
+
+
+
+                </p:dataTable>
+
             </h:panelGrid>            
-            
-            
-            
-            
+
+
+            <p:dialog header="Prospect Info" widgetVar="prospectDialog" modal="true" showEffect="fade" 
+                      closeOnEscape="true" hideEffect="fade" resizable="false" appendTo="@(body)" draggable="false">
+                <p:outputPanel id="prospectDetail" style="text-align:center;">
+                    <p:panelGrid  columns="2" rendered="#{not empty prospectManagedBean.selectedProspect}" columnClasses="label,value">
+
+                        <h:outputText value="Prospect ID" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospectid}" />
+
+                        <h:outputText value="Name" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospectname}" />
+
+                        <h:outputText value="Tel. No" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospecttel1}" />
+
+                        <h:outputText value="Alt Tel. No" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospecttel2}" />
+
+                        <h:outputText value="Address" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospectaddress}" />
+
+                        <h:outputText value="Website" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospectwebsite}" />
+
+                        <h:outputText value="Remark" />
+                        <h:outputText value="#{prospectManagedBean.selectedProspect.usprospectremark}" />
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+
         </h:form>
-        
+
     </ui:define>
 
 </ui:composition>

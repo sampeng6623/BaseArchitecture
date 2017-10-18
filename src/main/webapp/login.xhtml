@@ -10,12 +10,12 @@
     <ui:define name="content">
         <h:form id="form">
             <p:growl id="growl" showDetail="true" sticky="true" />
-            <h:panelGrid columns="2" >
+            <h:panelGrid columns="2" style="margin: 0 auto; width: 600" >
                 <h:outputLabel value="UserID"/>
                    <p:inputText value="#{loginManagedBean.userid}" /> 
                    
                    <h:outputLabel value="Password" />
-                <p:inputText value="#{loginManagedBean.password}" />
+                   <p:password required="true" value="#{loginManagedBean.password}" />
                 
                 <p:spacer/>  
                 <p:commandButton 

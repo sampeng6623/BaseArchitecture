@@ -4,11 +4,16 @@ com\company\sts\controller\partner\ProspectManagedBean.class
 com\company\dao\partner\ProspectDAO.class
 com\company\dao\LoginDAO.class
 com\company\sts\controller\partner\PartnerTemplateManagedBean.class
+com\company\sts\entity\Usprospect_.class
 com\company\sts\controller\LoginManagedBean.class
+com\company\sts\controller\partner\ProspectAddManagedBean.class
+com\company\sts\entity\Usmenu_.class
+com\company\dao\partner\PartnerTemplateDAO.class
 com\company\sts\entity\Usersts.class
 com\company\sts\entity\Usmenu.class
 com\company\dao\GenericDAO.class
 com\company\sec\AuthorizationFilter.class
+com\company\sts\entity\Usersts_.class
 com\company\sec\EMF.class
 com\company\sec\GenericUtils.class
 com\company\sts\entity\Usprospect.class

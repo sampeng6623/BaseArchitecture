@@ -45,22 +45,6 @@ public class PartnerTemplateDAO extends GenericDAO implements Serializable{
         
         return query.getResultList();
     }
-//    
-//    public static boolean validate(String user, String password) throws Exception{
-//        
-//        em = EMF.createEntityManager();
-//        TypedQuery<Usersts> query =
-//                     em.createNamedQuery("Usersts.validateLogin", Usersts.class)
-//                .setParameter("usUsername", user)
-//                .setParameter("usPassword", password);
-//            List<Usersts> results = query.getResultList();
-//		
-//            if(results.isEmpty())
-//		return false;
-//            else
-//                return true;
-//	}
-//    
 
     
 }

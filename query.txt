@@ -1,0 +1,34 @@
+CREATE TABLE `usersts` (
+  `seq` int(11) DEFAULT NULL,
+  `us_username` varchar(45) NOT NULL,
+  `us_password` varchar(50) NOT NULL,
+  PRIMARY KEY (`us_username`),
+  UNIQUE KEY `seq_UNIQUE` (`seq`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `usmenu` (
+  `usm_node` int(11) NOT NULL,
+  `usm_nodeparent` int(11) DEFAULT NULL,
+  `usm_nodename` varchar(45) DEFAULT NULL,
+  `usm_nodeDesc` varchar(100) DEFAULT NULL,
+  `usm_nodepath` varchar(100) DEFAULT NULL,
+  `usm_nodestatus` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`usm_node`),
+  UNIQUE KEY `usm_node_UNIQUE` (`usm_node`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE DATABASE `sts` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+CREATE TABLE `sts`.`usprospect` (
+  `usprospectid` VARCHAR(12) NOT NULL,
+  `usprospectname` VARCHAR(100) NOT NULL,
+  `usprospecttel1` VARCHAR(45) NULL,
+  `usprospecttel2` VARCHAR(45) NULL,
+  `usprospectaddress` VARCHAR(300) NULL,
+  `usprospectwebsite` VARCHAR(45) NULL,
+  `usprospectremark` VARCHAR(500) NULL,
+  `usprospectstatus` VARCHAR(1) NOT NULL,
+  `createby` VARCHAR(45) NULL,
+  `doneby` VARCHAR(45) NULL,
+  `createtime` DATETIME NULL,
+  `lastmodify` DATETIME NULL,
+  PRIMARY KEY (`usprospectid`));

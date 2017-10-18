@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 13, 2017, 6:33:05 PM
+    Author     : sampeng
+*/
+
+.ui-panelgrid td, .ui-panelgrid tr
+{
+    border-style: none !important
+        background: transparent !important;
+}
+
+.buttongrid.ui-panelgrid>*>tr,
+.buttongrid.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+    background: transparent !important;
+}
+
+.formgrid.ui-panelgrid>*>tr,
+.formgrid.ui-panelgrid .ui-panelgrid-cell {
+    border-style: dotted !important;
+    
+    background: transparent !important;
+}
+.defaultMain{
+    width:98%;
+    margin : 0 auto;
+}
+
+.addFormOutputPanel{
+    width: 250px !important;
+    
+}
+.addFormOutputPanel label{
+    float:right !important;
+}
+
+.buttonStyle{
+    width:150px;  
+}

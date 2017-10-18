@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/template/partnerTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                      xmlns:f = "http://java.sun.com/jsf/core"    
+>
+
+
+    <ui:define name="content"> 
+        <h:form id="form">
+            
+           
+
+            <p:panelGrid  id="panelForm" styleClass="formgrid defaultMain" >
+                 <p:growl id="growl" showDetail="true" sticky="true" /> 
+                <p:messages id="msgs" closable="true"  autoUpdate="true" redisplay="false" />
+                 <p:row>
+                     <p:column styleClass="addFormOutputPanel" >
+                         <p:outputLabel for="firstname"  value="First Name "  />
+                     </p:column>
+                        <p:column>
+                            <p:inputText id="firstname" value="#{prospectAddManagedBean.firstName}" required="true"
+                                         requiredMessage="Please enter First Name" autocomplete="false" maxlength="100"/>
+                        </p:column>
+
+                    </p:row>
+                    <p:row>
+                     <p:column  styleClass="addFormOutputPanel">
+                         <p:outputLabel value="Last Name" />
+                     </p:column>
+                        <p:column>
+                            <p:inputText value="#{prospectAddManagedBean.lastName}" autocomplete="false" maxlength="100"/>
+                        </p:column>
+
+                    </p:row>
+                <p:row>
+                     <p:column  styleClass="addFormOutputPanel">
+                         <p:outputLabel value="Website" />
+                     </p:column>
+                        <p:column>
+                            <p:inputText value="#{prospectAddManagedBean.website}" autocomplete="false" maxlength="45"/>
+                        </p:column>
+
+                    </p:row>
+                <p:row>
+                    <p:column  styleClass="addFormOutputPanel" style="vertical-align: top">
+                         <p:outputLabel value="Address" />
+                     </p:column>
+                        <p:column>
+                            <p:inputTextarea value="#{prospectAddManagedBean.address}" rows="5" autoResize="true" style="width: 500px"
+                                              maxlength="300"/>
+                        </p:column>
+
+                    </p:row>
+                <p:row>
+                     <p:column  styleClass="addFormOutputPanel">
+                         <p:outputLabel value="Tel. No" for="telNo"  />
+                     </p:column>
+                        <p:column>
+                            <p:inputNumber id="telNo"   value="#{prospectAddManagedBean.tel1}" autocomplete="false" maxlength="45"
+                                           required="true" requiredMessage="Please enter Tel. No"  thousandSeparator="" decimalSeparator="" 
+                                           maxValue="999999999999999999999999999999999999999999999" minValue="0"/>
+                        </p:column>
+
+                    </p:row>
+                <p:row>
+                     <p:column  styleClass="addFormOutputPanel">
+                         <p:outputLabel value="Additional Tel. No" />
+                     </p:column>
+                        <p:column>
+                            <p:inputNumber value="#{prospectAddManagedBean.tel2}" autocomplete="false" maxlength="45"
+                                           thousandSeparator="" decimalSeparator="" 
+                                           maxValue="999999999999999999999999999999999999999999999" minValue="0"/>
+                        </p:column>
+
+                    </p:row>
+                <p:row>
+                     <p:column  styleClass="addFormOutputPanel" style="vertical-align: top">
+                         <p:outputLabel value="Remark" />
+                     </p:column>
+                        <p:column>
+                            <p:inputTextarea value="#{prospectAddManagedBean.remark}" rows="5" autoResize="true" style="width: 500px"
+                                            maxlength="500"/>
+                        </p:column>
+
+                    </p:row>
+                
+            </p:panelGrid>            
+            
+            <p:panelGrid  styleClass=" defaultMain buttongrid" >
+                <p:row>
+                    <p:column  style="width: 80%"></p:column>
+                    <p:column  >
+                        <p:commandButton  style="float: right" value="Save" 
+                                          action="#{prospectAddManagedBean.onSave()}" update="panelForm"   />
+                    </p:column>
+                    <p:column >
+                        <p:commandButton style="float: right" value="Cancel" 
+                                         action="#{prospectAddManagedBean.onCancel()}" immediate="true" />
+                    </p:column>
+                </p:row>
+                
+            </p:panelGrid>
+          
+            
+        </h:form>
+        
+    </ui:define>
+
+</ui:composition>

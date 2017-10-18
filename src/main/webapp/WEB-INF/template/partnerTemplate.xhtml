@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      
-                xmlns:p="http://primefaces.org/ui"
-                xmlns:f = "http://java.sun.com/jsf/core"    
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f = "http://java.sun.com/jsf/core"    
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,23 +17,37 @@
 
     <h:body>
 
-        <div id="top" class="top">  
-            
-            <h:form id="formtop">
-                <p:growl id="messages" showDetail="false"/>
-                <p:menubar model="#{partnerTemplateManagedBean.model}"  >
-                <f:facet name="options">
-                    
-                    <h:commandLink action="#{partnerTemplateManagedBean.logout}" value="Logout"></h:commandLink>
-                 </f:facet>
-                </p:menubar>  
-               
+        <div style="
+  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1024px;
+    margin: 0 auto;
+    background-color: #f3f3f3;" >
+            <div id="top" class="top">  
                 
-            </h:form>
-        </div>  
+                
+                
+                
+                <h:form id="formtop">
+                    <p:growl id="messages" showDetail="false"/>
+                    <p:menubar model="#{partnerTemplateManagedBean.model}"  style="float: outside">
+                        <f:facet name="options">
 
-        <div id="content" class="center_content">   
-            <ui:insert name="content"></ui:insert>
+                            <h:commandLink action="#{partnerTemplateManagedBean.logout}" value="Logout"></h:commandLink>
+                        </f:facet>
+                    </p:menubar>  
+
+
+                </h:form>
+            </div>  
+
+            <div id="content" class="center_content" style="width: 1024px">   
+                <ui:insert name="content"></ui:insert>
+            </div>
+
         </div>
 
     </h:body>
